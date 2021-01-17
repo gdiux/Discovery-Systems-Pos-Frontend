@@ -1,30 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// MODULES
 import { AppRoutingModule } from './app-routing.module';
+import { PagesModule } from './pages/pages.module';
+import { AuthModule } from './auth/auth.module';
+
+// COMPONENTS
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { VentasComponent } from './pages/ventas/ventas.component';
-import { ClientesComponent } from './pages/clientes/clientes.component';
-import { PagesComponent } from './pages/pages.component';
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    NopagefoundComponent,
-    DashboardComponent,
-    HeaderComponent,
-    VentasComponent,
-    ClientesComponent,
-    PagesComponent
+    NopagefoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PagesModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
