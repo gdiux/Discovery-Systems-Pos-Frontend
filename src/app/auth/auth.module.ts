@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 
 // MODULES
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 
 // COMPONENTS
 import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +20,10 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }

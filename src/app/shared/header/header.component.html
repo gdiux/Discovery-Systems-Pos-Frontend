@@ -2,7 +2,18 @@
     <div class="container">
         <div class="bg-dark clearfix">
             <a class="navbar-brand float-start text-white" href="#">Discovery Systems Pos</a>
-            <a class="btn float-end text-white">user</a>
+
+            <!-- BTN USER -->
+            <div class="dropdown float-end">
+                <button class="btn text-white" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person text-white-50" style="font-size: 1.5rem;"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li><a class="dropdown-item cursor" (click)="logout()">Salir</a></li>
+                </ul>
+            </div>
+            <!-- BTN USER -->
         </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0" aria-label="Eighth navbar example">
