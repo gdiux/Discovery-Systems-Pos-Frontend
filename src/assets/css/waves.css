@@ -1,12 +1,8 @@
 .btnW {
-    line-height: 31px;
     position: relative;
-    padding: 5px 22px;
     border: 0;
-    margin: 10px;
     cursor: pointer;
     border-radius: 2px;
-    text-transform: uppercase;
     text-decoration: none;
     outline: none !important;
     -webkit-transition: 0.2s ease-out;
@@ -121,6 +117,10 @@
 
 .waves-effect.waves-teal .waves-ripple {
     background-color: rgba(0, 150, 136, 0.7);
+}
+
+.waves-effect.waves-blue .waves-ripple {
+    background-color: rgba(14, 73, 181, 0.7);
 }
 
 

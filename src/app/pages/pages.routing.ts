@@ -9,6 +9,13 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { ProductosComponent } from './productos/productos.component';
+import { InventarioComponent } from './inventario/inventario.component';
+import { ComprasComponent } from './compras/compras.component';
+import { ConfiguracionComponent } from './configuracion/configuracion.component';
+import { FacturasComponent } from './facturas/facturas.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { ProductoComponent } from './productos/producto.component';
 
 
 const routes: Routes = [
@@ -19,9 +26,16 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         children: [
     
-          { path: '', component: DashboardComponent },
-          { path: 'clientes', component: ClientesComponent },
-          { path: 'ventas', component: VentasComponent },
+          { path: '', component: DashboardComponent, data:{ titulo: 'Dashboard'} },
+          { path: 'clientes', component: ClientesComponent, data:{ titulo: 'Clientes'} },
+          { path: 'ventas', component: VentasComponent, data:{ titulo: 'Ventas'} },
+          { path: 'inventario', component: InventarioComponent, data:{ titulo: 'Inventario'} },
+          { path: 'compras', component: ComprasComponent, data:{ titulo: 'Compras'} },
+          { path: 'configuracion', component: ConfiguracionComponent, data:{ titulo: 'Configuracion'} },
+          { path: 'facturas', component: FacturasComponent, data:{ titulo: 'Facturas'} },
+          { path: 'perfil', component: PerfilComponent, data:{ titulo: 'Perfil'} },
+          { path: 'productos', component: ProductosComponent, data:{ titulo: 'Productos'} },
+          { path: 'producto/:id', component: ProductoComponent, data:{ titulo: 'Producto'} }
               
         ]
       },    
