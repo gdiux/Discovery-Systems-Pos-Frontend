@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 
 // INTERFACE
 import { LoginForm } from '../interfaces/login-form.interface';
+import { LoadUsers } from '../interfaces/load-users.interface';
 
 // ENVIRONMENT
 import { environment } from '../../environments/environment';
@@ -26,6 +27,24 @@ export class UserService {
 
   constructor( private http: HttpClient,
                 private router: Router ) { }
+
+  /** ================================================================
+   *   GET TOKEN
+  ==================================================================== */
+  get token():string {
+    return localStorage.getItem('token') || '';
+  }
+
+  /** ================================================================
+   *   GET HEADERS
+  ==================================================================== */
+  get headers() {
+    return {
+      headers: {
+        'x-token': this.token
+      }
+    }
+  }
 
   /** ================================================================
    *   LOGOUT
@@ -66,15 +85,21 @@ export class UserService {
    *   CREATE USER
   ==================================================================== */
   createUser( formData: any ){
+      
+    return this.http.post(`${base_url}/users`, formData, this.headers);
 
-    const token = localStorage.getItem('token') || '';
-    
-    return this.http.post(`${base_url}/users`, formData, {
-      headers: {
-        'x-token': token
-      }
-    });
+  }
 
+  /** ================================================================
+   *   LOAD USERS
+  ==================================================================== */
+  loadUsers(){
+    return this.http.get<LoadUsers>(`${base_url}/users`, this.headers)
+                .pipe(
+                  map( resp => {
+                      return resp;
+                    })
+                )
   }
 
   /** ================================================================

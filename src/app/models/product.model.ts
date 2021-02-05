@@ -28,6 +28,7 @@ export class Product {
         public damaged?: number,
         public img?: string,
         public expiration?: Date,
+        public status?: boolean,
         public pid?: string
     ){}
 

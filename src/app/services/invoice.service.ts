@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { delay, map, tap } from 'rxjs/operators'
+
+// INTERFACES
+import { LoadInvoice } from '../interfaces/invoice.interface';
+
 import { environment } from '../../environments/environment';
-import { delay, map } from 'rxjs/operators';
 
 const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
 })
-export class SearchService {
+export class InvoiceService {
 
-  constructor( private http: HttpClient ) { }
+  constructor(private http: HttpClient) { }
   
   /** ================================================================
    *   GET TOKEN
@@ -31,20 +35,13 @@ export class SearchService {
     }
   }
 
-  search(
-      tipo: 'users'|'clients' |'departments'|'products' |'caja',
-      termino: string
-    ){
+  /** ================================================================
+   *   CREATE INVOICE
+  ==================================================================== */
+  createInvoice(formData:any){
+    
+    return this.http.post(`${base_url}/invoice`, formData, this.headers);
 
-    const endPoint = `/search/${tipo}/${termino}`;
-    return this.http.get<any[]>(`${base_url}${endPoint}`, this.headers)
-            .pipe(
-              delay(500),
-              map( (resp: any) => {              
-                return resp;
-              })
-            );
   }
-
 
 }

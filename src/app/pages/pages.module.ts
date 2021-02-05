@@ -20,6 +20,10 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { ProductoComponent } from './productos/producto.component';
 import { NuevoComponent } from './productos/nuevo/nuevo.component';
 import { DepartamentosComponent } from './productos/departamentos/departamentos.component';
+import { TicketComponent } from './ventas/ticket/ticket.component';
+import { CajaComponent } from './configuracion/caja/caja.component';
+import { UsuariosComponent } from './configuracion/usuarios/usuarios.component';
+import { AperturaComponent } from './dashboard/apertura/apertura.component';
 
 
 
@@ -37,7 +41,11 @@ import { DepartamentosComponent } from './productos/departamentos/departamentos.
     PerfilComponent,
     ProductoComponent,
     NuevoComponent,
-    DepartamentosComponent
+    DepartamentosComponent,
+    TicketComponent,
+    CajaComponent,
+    UsuariosComponent,
+    AperturaComponent
   ],
   exports: [
     PagesComponent,

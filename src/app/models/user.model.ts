@@ -11,6 +11,7 @@ export class User {
         public role?: string,
         public img?: string,
         public uid?: string,
+        public status?: boolean,
     ){}
 
     /** ================================================================

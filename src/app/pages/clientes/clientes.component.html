@@ -76,7 +76,7 @@
                                         <h4 class="text-muted">Sin Resultados</h4>
                                     </th>
                                 </tr>
-                                <tr class="trHover " *ngFor="let cliente of clientes; let i=index ">
+                                <tr class="trHover" *ngFor="let cliente of clientes; let i=index ">
                                     <th *ngIf="desde===0 " scope="row ">{{ i + 1}}</th>
                                     <th *ngIf="desde> 0" scope="row">{{ (i + 1) + desde }}</th>
                                     <td colspan="2">{{ cliente.name }}</td>
@@ -133,7 +133,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="nuevoClienteModal"><i class="bi-person-plus" style="font-size: 1rem"></i> Nuevo Cliente</h5>
+                <h5 class="modal-title" id="nuevoClienteModal"><i class="bi-person-plus" style="font-size: 2rem"></i> Nuevo Cliente</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

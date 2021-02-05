@@ -1,1 +1,52 @@
-<p>ventas works!</p>
+<!-- =========================================================================
+    HEADER 
+========================================================================= -->
+<header>
+    <div class="bg-header-blue py-2 px-3 mb-2">
+        <h5 class="text-white m-0">Venta</h5>
+    </div>
+    <ul class="nav nav-tabs px-3" id="myTab" role="tablist">
+
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-dark active" id="ticket1-tab" data-bs-toggle="tab" href="#ticket1" role="tab" aria-controls="ticket1" aria-selected="true"><i class="bi-receipt-cutoff" style="font-size: 1rem"></i> Ticket 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="ticket2-tab" data-bs-toggle="tab" href="#ticket2" role="tab" aria-controls="ticket2" aria-selected="false"><i class="bi-receipt-cutoff" style="font-size: 1rem"></i> Ticket 2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="ticket3-tab" data-bs-toggle="tab" href="#ticket3" role="tab" aria-controls="ticket3" aria-selected="false"><i class="bi-receipt-cutoff" style="font-size: 1rem"></i> Ticket 3</a>
+        </li>
+    </ul>
+</header>
+<!-- =========================================================================
+    HEADER 
+========================================================================= -->
+<!-- =========================================================================
+    BODY 
+========================================================================= -->
+<div class="tab-content mt-2 bg-light2" id="myTabContent">
+
+    <!-- TAB 1 -->
+    <div class="tab-pane fade show active" id="ticket1" role="tabpanel" aria-labelledby="ticket1-tab">
+
+        <app-ticket></app-ticket>
+
+    </div>
+    <!-- TAB 1 -->
+
+    <!-- TAB 2 -->
+    <div class="tab-pane fade show" id="ticket2" role="tabpanel" aria-labelledby="ticket2-tab">
+        2
+    </div>
+    <!-- TAB 2 -->
+
+    <!-- TAB 3 -->
+    <div class="tab-pane fade show" id="ticket3" role="tabpanel" aria-labelledby="ticket3-tab">
+        3
+    </div>
+    <!-- TAB 3 -->
+
+</div>
+<!-- =========================================================================
+    BODY 
+========================================================================= -->

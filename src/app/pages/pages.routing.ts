@@ -16,6 +16,8 @@ import { ConfiguracionComponent } from './configuracion/configuracion.component'
 import { FacturasComponent } from './facturas/facturas.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ProductoComponent } from './productos/producto.component';
+import { CajaComponent } from './configuracion/caja/caja.component';
+import { UsuariosComponent } from './configuracion/usuarios/usuarios.component';
 
 
 const routes: Routes = [
@@ -35,7 +37,9 @@ const routes: Routes = [
           { path: 'facturas', component: FacturasComponent, data:{ titulo: 'Facturas'} },
           { path: 'perfil', component: PerfilComponent, data:{ titulo: 'Perfil'} },
           { path: 'productos', component: ProductosComponent, data:{ titulo: 'Productos'} },
-          { path: 'producto/:id', component: ProductoComponent, data:{ titulo: 'Producto'} }
+          { path: 'producto/:id', component: ProductoComponent, data:{ titulo: 'Producto'} },
+          { path: 'configuracion/caja', component: CajaComponent, data:{ titulo: 'Caja' } },
+          { path: 'configuracion/usuarios', component: UsuariosComponent, data:{ titulo: 'Usuarios' } }
               
         ]
       },    

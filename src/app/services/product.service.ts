@@ -76,6 +76,17 @@ export class ProductService {
   }
 
   /** ================================================================
+   *   CARGAR PRODUCTOS POR CODIGO
+  ==================================================================== */
+  cargarProductoCodigo( code: string ){
+    const endPoint = `/products/code/${code}`;
+    return this.http.get(`${base_url}${endPoint}`, this.headers)
+              .pipe(
+                map( (resp: {ok: boolean, product: Product} ) => resp.product)
+              );
+  }
+
+  /** ================================================================
    *   ACTUALIZAR PRODUCTO
   ==================================================================== */
   actualizarProducto(formData:any, _id:string){
@@ -88,9 +99,6 @@ export class ProductService {
   deleteProduct( _id: string){
     return this.http.delete(`${base_url}/products/${_id}`, this.headers);
   }
-
-
-
 
   // FIN DE LA CLASE
 }

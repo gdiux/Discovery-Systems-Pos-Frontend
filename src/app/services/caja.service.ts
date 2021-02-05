@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
 
 import { delay, map, tap } from 'rxjs/operators'
 
-// MODEL
-import { Department } from '../models/department.model';
+// INTERFACES
+import { LoadCaja } from '../interfaces/load-caja.interface';
+
+// CAJA
+import { Caja } from '../models/caja.model';
 
 import { environment } from '../../environments/environment';
-import { LoadDepartment } from '../interfaces/load-department.interface';
-
 const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
 })
-
-export class DepartmentService {
-
-  public department: Department;
+export class CajaService {
 
   constructor(private http: HttpClient) { }
 
@@ -40,50 +39,50 @@ export class DepartmentService {
   }
 
   /** ================================================================
-   *  LOAD DEPARTMENT
+   *  CREATE CAJA
   ==================================================================== */
-  loadDepartment(){
-
-    return this.http.get<LoadDepartment>(`${base_url}/departments`, this.headers)
-        .pipe(
-          map( resp =>{
-            return resp;
-          })
-        );
-        
-  }
-
-  /** ================================================================
-   *  CREATE DEPARTMENT
-  ==================================================================== */
-  createDepartment(formData: any){
+  createCaja(formData: Caja){
     
-    return this.http.post(`${base_url}/departments`, formData, this.headers);
+    return this.http.post(`${base_url}/caja`, formData, this.headers);
 
   }
 
   /** ================================================================
-   *  UPDATE DEPARTMENT
+   *  LOAD CAJAS
   ==================================================================== */
-  updateDepartment(formData: any, id:string){
+  loadCajas(){
     
-    return this.http.put(`${base_url}/departments/${id}`, formData, this.headers);
-
-  }
-
-  /** ================================================================
-   *  UPDATE STATUS DEPARTMENT
-  ==================================================================== */
-  statusUpdateDepartment(id: string){
-    
-    return this.http.delete(`${base_url}/departments/${id}`, this.headers)
+    return this.http.get<LoadCaja>(`${base_url}/caja`, this.headers)
                 .pipe(
-                  map( (resp: {ok: boolean, department: Department}) => { 
-                    return resp.department 
+                  map( resp => {
+                      return resp;
+                    })
+                )
+
+  }
+  /** ================================================================
+   *  UPDATE CAJA
+  ==================================================================== */
+  updateCaja(formData: any, id: string){
+    
+    return this.http.put(`${base_url}/caja/${id}`, formData, this.headers);
+
+  }
+
+  /** ================================================================
+   *  UPDATE ESTATUS CAJAS
+  ==================================================================== */
+  statusUpdateCaja(id: string){
+    
+    return this.http.delete(`${base_url}/caja/${id}`, this.headers)
+                .pipe(
+                  map( (resp: {ok: boolean, caja: Caja}) => { 
+                    return resp.caja 
                   })
                 );
 
   }
+
 
 
 

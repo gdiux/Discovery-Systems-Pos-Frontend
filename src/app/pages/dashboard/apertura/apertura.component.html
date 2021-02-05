@@ -1,0 +1,18 @@
+<!-- CAJAS -->
+
+<div class="d-flex flex-wrap">
+
+    <div class="p-2" *ngFor="let caja of listaCaja">
+        <div class="card text-white mb-3" [ngClass]="{'bg-secondary': caja.cerrada == false, 'bg-success': caja.cerrada == true}" style="max-width: 18rem;">
+            <div class="card-header">
+                <span *ngIf="!caja.cerrada">{{ caja.cajero.name }} </span>
+                <span *ngIf="caja.cerrada">Disponible </span>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ caja.description }}</h5>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            </div>
+        </div>
+    </div>
+
+</div>

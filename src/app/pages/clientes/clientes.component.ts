@@ -64,7 +64,7 @@ export class ClientesComponent implements OnInit {
 
     if (this.newClientForm.invalid) {
       return;
-    }
+    }    
 
     this.clientService.createClient(this.newClientForm.value)
         .subscribe((resp: any) => {
