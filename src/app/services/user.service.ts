@@ -6,15 +6,20 @@ import { catchError, map, tap } from 'rxjs/operators'
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 
+// SERVICES
+import { TurnoService } from './turno.service';
+
 // INTERFACE
 import { LoginForm } from '../interfaces/login-form.interface';
 import { LoadUsers } from '../interfaces/load-users.interface';
+import { LoadTurno } from '../interfaces/load-turno.interface';
 
 // ENVIRONMENT
 import { environment } from '../../environments/environment';
 
 // MODELS
 import { User } from '../models/user.model';
+import Swal from 'sweetalert2';
 
 const base_url = environment.base_url;
 
@@ -26,7 +31,8 @@ export class UserService {
   public user: User;
 
   constructor( private http: HttpClient,
-                private router: Router ) { }
+                private router: Router,
+                private turnoService: TurnoService ) { }
 
   /** ================================================================
    *   GET TOKEN
@@ -71,7 +77,7 @@ export class UserService {
         
         const { usuario, name, role, img, uid } = resp.usuario;
 
-        this.user = new User( usuario, name, '', role, img, uid );
+        this.user = new User( usuario, name, '', role, img, uid );        
 
         localStorage.setItem('token', resp.token);
       }),
@@ -110,8 +116,25 @@ export class UserService {
     return this.http.post(`${base_url}/login`, formData)
                       .pipe(
                         tap( (resp: any) => {
-                          localStorage.setItem('token', resp.token);                        
-                        })
+
+                          localStorage.setItem('token', resp.token);
+
+                        }),
+                        map( resp => {
+
+                          const turno = localStorage.getItem('turno') || '';
+
+                          if (turno !== '' || turno !== null) {
+
+                            this.turnoService.getTurnoId(turno)
+                                .subscribe( (resp) => {
+                                  
+                                })       
+                                    
+                          }
+                          
+                        }),
+                        catchError( error => of(false) )
                       );
   }
 

@@ -88,7 +88,7 @@ export class TicketComponent implements OnInit {
                   return;
                 }                
                 
-              })
+              });
               
             }else{
 
